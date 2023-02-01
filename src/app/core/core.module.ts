@@ -12,6 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule,
         BrowserAnimationsModule
     ],
-    exports: []
+    exports: [
+        HttpClientModule,
+        BrowserModule,
+        BrowserAnimationsModule
+    ]
 })
 export class CoreModule { }
