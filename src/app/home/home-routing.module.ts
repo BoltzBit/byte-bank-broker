@@ -5,7 +5,22 @@ import { HomeComponent } from "./component/home.component";
 export const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        children: [
+            {
+                path:'acoes',
+                loadChildren: () => import('../acoes/acoes.module').then(module => module.AcoesModule)
+            },
+            {
+                path: '',
+                redirectTo: 'acoes',
+                pathMatch: 'full'
+            },
+            {
+                path: '**',
+                redirectTo: 'acoes'
+            }
+        ]
     }
 ];
 
