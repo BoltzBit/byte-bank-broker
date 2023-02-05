@@ -5,6 +5,7 @@ import { PoPageLogin } from "@po-ui/ng-templates/lib";
 import { Subscription } from "rxjs";
 import { UserLogin } from "src/app/authorization/model";
 import { AuthorizationService } from "src/app/authorization/service";
+import { MessagesService } from "src/app/messages/messages.service";
 
 @Component({
     selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnDestroy, OnInit{
     private subs = new Subscription();
 
     constructor(
+        private _messageService: MessagesService,
         private _authService: AuthorizationService,
         private _route: Router
     ) { }
@@ -53,6 +55,7 @@ export class LoginComponent implements OnDestroy, OnInit{
                     complete: () => this.isLoading = false,
                     error: (error: HttpErrorResponse) => {
                         this.isLoading = false;
+                        this._messageService.showMessageError(error.message)
                         this._route.navigate(['/login'])
                     }
                 })
