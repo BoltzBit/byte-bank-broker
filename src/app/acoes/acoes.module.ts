@@ -2,11 +2,13 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SharedModule } from "../shared/shared.module";
 import { AcoesRoutingModule } from "./acoes-routing.module";
+import { CardAcoesComponent } from "./card-acoes/card-acoes.component";
 import { AcoesComponent } from "./component/acoes.component";
 
 @NgModule({
     declarations: [
-        AcoesComponent
+        AcoesComponent,
+        CardAcoesComponent
     ],
     imports: [
         CommonModule,
@@ -14,7 +16,8 @@ import { AcoesComponent } from "./component/acoes.component";
         SharedModule
     ],
     exports: [
-        AcoesComponent
+        AcoesComponent,
+        CardAcoesComponent
     ]
 })
 export class AcoesModule { }
