@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { PoMenuItem, PoToolbarAction, PoToolbarProfile } from "@po-ui/ng-components";
+import { PoMenuItem, PoToolbarAction, PoToolbarProfile} from "@po-ui/ng-components";
 import { Subscription } from "rxjs";
 import { User } from "src/app/authorization/model";
 import { AuthorizationService } from "src/app/authorization/service";
