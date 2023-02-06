@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { Acao } from "../models/acoes.model";
 
 @Component({
     selector: 'app-card-acoes',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 })
 export class CardAcoesComponent implements OnInit{
     //TO-DO refactor -> type the variable
-    @Input() acao: any;
+    @Input() acao!: Acao;
 
     constructor(){ }
 
