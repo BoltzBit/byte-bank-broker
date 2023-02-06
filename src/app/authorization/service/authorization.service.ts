@@ -24,6 +24,7 @@ export class AuthorizationService {
     }
 
     public login(user: UserLogin): Observable<object | User> {
+        console.log(user)
         const loginSubject = new Subject<User>();
 
         this.requestToken(user)

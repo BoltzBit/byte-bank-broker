@@ -4,12 +4,14 @@ import { PoTemplatesModule } from "@po-ui/ng-templates";
 import { SharedModule } from "../shared/shared.module";
 import { PortfolioComponent } from "./component/portfolio.component";
 import { PortfolioFormComponent } from "./components/portfolio-form/portfolio-form.component";
+import { PortfolioListComponent } from "./components/portfolio-list/portfolio-list.component";
 import { PortfolioRoutingModule } from "./portfolio-routing.module";
 
 @NgModule({
     declarations: [
         PortfolioComponent,
-        PortfolioFormComponent
+        PortfolioFormComponent,
+        PortfolioListComponent
     ],
     imports: [
         CommonModule,
