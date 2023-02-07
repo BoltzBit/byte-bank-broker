@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable, tap } from "rxjs";
-import { Acao, AcoesAPI } from "../models/acoes.model";
+import { Acao, Acoes, AcoesAPI } from "../models/acoes.model";
 
 @Injectable({
     providedIn: 'root'

@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { map, Observable } from "rxjs";
+import { map, Observable, Subscription } from "rxjs";
 import { Acoes } from "../models/acoes.model";
 import { AcoesService } from "../services/acoes.service";
 
@@ -12,7 +12,6 @@ import { AcoesService } from "../services/acoes.service";
 export class AcoesComponent implements OnInit {
     public acoesInput = new FormControl();
     public acoes$: Observable<Acoes> = new Observable<Acoes>;
-
     constructor(private _acoesService: AcoesService) { }
 
     public ngOnInit(): void {
