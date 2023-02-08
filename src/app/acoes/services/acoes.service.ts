@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable, tap } from "rxjs";
 import { Acao, Acoes, AcoesAPI } from "../models/acoes.model";
@@ -11,8 +11,10 @@ export class AcoesService {
         private _httpClient: HttpClient
     ) { }
 
-    public getAcoes(): Observable<AcoesAPI>{
-        return this._httpClient.get<AcoesAPI>(`http://localhost:3000/acoes`)
+    public getAcoes(value?: string): Observable<AcoesAPI>{
+        const params: HttpParams | undefined = value ? new HttpParams().append('valor', value) : undefined;
+
+        return this._httpClient.get<AcoesAPI>(`http://localhost:3000/acoes`, { params })
             .pipe(
                 tap(acoes => acoes.payload.sort((a,b) => this._ordenaCodigo(a,b)))
             );
