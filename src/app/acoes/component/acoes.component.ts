@@ -1,8 +1,10 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { map, merge, Observable, Subscription, switchMap } from "rxjs";
+import { debounceTime, distinctUntilChanged, filter, map, merge, Observable, switchMap, tap } from "rxjs";
 import { Acoes } from "../models/acoes.model";
 import { AcoesService } from "../services/acoes.service";
+
+const TIME = 300;
 
 @Component({
     selector: 'app-acoes',
@@ -28,6 +30,10 @@ export class AcoesComponent implements OnInit {
         
         this.filterActions$ = this.acoesInput.valueChanges
                 .pipe(
+                    debounceTime(TIME),
+                    filter(value => value.length > 3 || !value.length),
+                    distinctUntilChanged(),
+                    tap(response => console.log(response)),
                     switchMap((response) => {
                         return this._acoesService.getAcoes(response)
                             .pipe(
